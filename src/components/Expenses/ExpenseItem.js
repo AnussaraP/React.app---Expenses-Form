@@ -1,38 +1,21 @@
 import React, {useState} from "react";
-
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card"; 
 import "./ExpenseItem.css";
  
-function ExpenseItem(data) {
-  
-  const [title,setTitle] = useState(data.title); //first rendering isnt empty '' but it already has value  data.title
-  console.log({title})
-   const clickHandler = (e)=>{
-   setTitle(title); 
-   };
+function ExpenseItem({title,amount,date}) {
 
-   const saveEditExpenseItem = {
-    title: title
-   }
-
-
-  // propsOrData.onSaveEditExpenseItem(saveEditExpenseItem);
-  
   return (
     <Card className="expense-item">
-        <ExpenseDate date={data.date}/>
+      <ExpenseDate date={date}/>
       
       <div className="expense-item__description">
-        <h2>{data.title}</h2>
+        <h2>{title}</h2>
 
-        <div className="expense-item__price">£{data.amount}</div>
+        <div className="expense-item__price">£{amount}</div>
       </div>
 
-      <button type="Edit" onClick={clickHandler}>Change title</button>
-    
-
-    </Card>
+      </Card>
   );
   //for <button >can have even onClick={} arrow function or function
 
